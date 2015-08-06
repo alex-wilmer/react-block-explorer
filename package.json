@@ -1,0 +1,21 @@
+{
+  "name": "block_explorer",
+  "version": "1.0.0",
+  "description": "A bitcoin block explorer written in React",
+  "main": "app.js",
+  "scripts": {
+    "test": "test"
+  },
+  "author": "alex-wilmer",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/alex-wilmer/react-block-explorer.git"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-babel": "^5.2.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-jade": "^1.1.0"
+  }
+}
