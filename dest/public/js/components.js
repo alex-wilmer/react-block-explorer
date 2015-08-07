@@ -26,8 +26,8 @@
       var self = this;
 
       socket.on('new_transaction', function (response) {
-        var data = self.state.data.unshift(response).slice(0, 9);
-        self.setState({ data: data });
+        self.state.data.unshift(response);
+        self.setState({ data: self.state.data.slice(0, 9) });
       });
     },
 
