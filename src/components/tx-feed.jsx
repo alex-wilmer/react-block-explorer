@@ -2,11 +2,11 @@
   const TxList = React.createClass({
     render() {
       const latestTransactions = this.props.data.map(tx => {
-        const highRoller =
-          tx.payload.transaction.amount > 10e7 ? `high-roller` : ``
+        const txClass =
+          tx.payload.transaction.amount > 10e7 ? `tx high-roller` : `tx`
 
         return (
-          <li className={ highRoller } key={ tx.id }>
+          <li className={ txClass } key={ tx.id }>
             <span className='id'>{ tx.id }</span>
             <span className='satoshis'>
               { tx.payload.transaction.amount }

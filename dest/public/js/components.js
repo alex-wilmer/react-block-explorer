@@ -6,11 +6,11 @@
 
     render: function render() {
       var latestTransactions = this.props.data.map(function (tx) {
-        var highRoller = tx.payload.transaction.amount > 10e7 ? 'high-roller' : '';
+        var txClass = tx.payload.transaction.amount > 10e7 ? 'tx high-roller' : 'tx';
 
         return React.createElement(
           'li',
-          { className: highRoller, key: tx.id },
+          { className: txClass, key: tx.id },
           React.createElement(
             'span',
             { className: 'id' },
