@@ -27,11 +27,9 @@
     }
 
   , componentDidMount() {
-      const self = this
-
       socket.on(`new_transaction`, response => {
-        self.state.data.unshift(response)
-        self.setState({ data: self.state.data.slice(0, 9) })
+        this.state.data.unshift(response)
+        this.setState({ data: this.state.data.slice(0, 9) })
       })
     }
 

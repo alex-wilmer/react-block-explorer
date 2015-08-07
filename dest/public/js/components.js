@@ -40,11 +40,11 @@
     },
 
     componentDidMount: function componentDidMount() {
-      var self = this;
+      var _this = this;
 
       socket.on('new_transaction', function (response) {
-        self.state.data.unshift(response);
-        self.setState({ data: self.state.data.slice(0, 9) });
+        _this.state.data.unshift(response);
+        _this.setState({ data: _this.state.data.slice(0, 9) });
       });
     },
 
