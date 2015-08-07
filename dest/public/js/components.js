@@ -1,23 +1,24 @@
-"use strict";
+'use strict';
 
-var socket = io.connect(location.href);
+(function () {
+  var TxFeed = React.createClass({
+    displayName: 'TxFeed',
 
-socket.on("new_transaction", function (data) {
-  console.log(data);
-});
+    render: function render() {
+      var latestTransaction = this.props.data.id;
 
-var MyComponent = React.createClass({
-  displayName: "MyComponent",
+      return React.createElement(
+        'h1',
+        null,
+        'Latest transaction id: ',
+        latestTransaction
+      );
+    }
+  });
 
-  render: function render() {
-    return React.createElement(
-      "h1",
-      null,
-      "Hello, ",
-      this.props.name,
-      "!"
-    );
-  }
-});
+  var socket = io.connect(location.href);
 
-React.render(React.createElement(MyComponent, { name: "Handsome" }), document.getElementById('mount-point'));
+  socket.on('new_transaction', function (data) {
+    React.render(React.createElement(TxFeed, { data: data }), document.getElementById('mount-point'));
+  });
+})();
