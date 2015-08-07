@@ -1,20 +1,29 @@
-'use strict';
+"use strict";
 
 (function () {
   var TxList = React.createClass({
-    displayName: 'TxList',
+    displayName: "TxList",
 
     render: function render() {
       var latestTransactions = this.props.data.map(function (tx) {
         return React.createElement(
-          'li',
-          null,
-          tx.id
+          "li",
+          { key: tx.id },
+          React.createElement(
+            "span",
+            { className: "id" },
+            tx.id
+          ),
+          React.createElement(
+            "span",
+            { className: "satoshis" },
+            tx.payload.transaction.amount
+          )
         );
       });
 
       return React.createElement(
-        'ul',
+        "ul",
         null,
         latestTransactions
       );
@@ -22,7 +31,7 @@
   });
 
   var TxFeed = React.createClass({
-    displayName: 'TxFeed',
+    displayName: "TxFeed",
 
     getInitialState: function getInitialState() {
       return { data: [] };
@@ -31,7 +40,7 @@
     componentDidMount: function componentDidMount() {
       var self = this;
 
-      socket.on('new_transaction', function (response) {
+      socket.on("new_transaction", function (response) {
         self.state.data.unshift(response);
         self.setState({ data: self.state.data.slice(0, 9) });
       });
@@ -39,12 +48,12 @@
 
     render: function render() {
       return React.createElement(
-        'div',
+        "div",
         null,
         React.createElement(
-          'h1',
+          "h1",
           null,
-          'latest transactions'
+          "latest transactions"
         ),
         React.createElement(TxList, { data: this.state.data })
       );

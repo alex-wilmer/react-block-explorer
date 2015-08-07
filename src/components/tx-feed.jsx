@@ -3,7 +3,12 @@
     render() {
       const latestTransactions = this.props.data.map(tx => {
         return (
-          <li>{ tx.id }</li>
+          <li key={ tx.id }>
+            <span className="id">{ tx.id }</span>
+            <span className="satoshis">
+              { tx.payload.transaction.amount }
+            </span>
+          </li>
         )
       })
 
