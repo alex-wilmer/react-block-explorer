@@ -2,7 +2,7 @@
 
 var socket = io.connect(location.href);
 
-socket.on("test", function (data) {
+socket.on("new_transaction", function (data) {
   console.log(data);
 });
 
