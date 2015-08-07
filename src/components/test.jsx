@@ -1,6 +1,6 @@
 const socket = io.connect(location.href)
 
-socket.on(`test`, data => {
+socket.on(`new_transaction`, data => {
   console.log(data)
 })
 
