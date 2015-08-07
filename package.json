@@ -2,7 +2,7 @@
   "name": "block_explorer",
   "version": "1.0.0",
   "description": "A bitcoin block explorer written in React",
-  "main": "app.js",
+  "main": "dest/app.js",
   "scripts": {
     "test": "test"
   },
@@ -17,5 +17,8 @@
     "gulp-babel": "^5.2.0",
     "gulp-concat": "^2.6.0",
     "gulp-jade": "^1.1.0"
+  },
+  "dependencies": {
+    "express": "^4.13.3"
   }
 }
