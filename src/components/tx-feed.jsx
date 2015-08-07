@@ -13,7 +13,7 @@
       })
 
       return (
-        <ul>{ latestTransactions }</ul>
+        <ul className="tx-list">{ latestTransactions }</ul>
       )
     }
   })
@@ -34,7 +34,7 @@
 
   , render() {
       return (
-        <div>
+        <div className="tx-feed">
           <h1>latest transactions</h1>
           <TxList data={ this.state.data } />
         </div>

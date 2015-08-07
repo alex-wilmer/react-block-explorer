@@ -24,7 +24,7 @@
 
       return React.createElement(
         "ul",
-        null,
+        { className: "tx-list" },
         latestTransactions
       );
     }
@@ -49,7 +49,7 @@
     render: function render() {
       return React.createElement(
         "div",
-        null,
+        { className: "tx-feed" },
         React.createElement(
           "h1",
           null,
