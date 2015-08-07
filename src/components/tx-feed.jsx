@@ -37,7 +37,7 @@
 
       socket.on(`new_transaction`, response => {
         this.state.data.unshift(response)
-        this.setState({ data: this.state.data.slice(0, 9) })
+        this.setState({ data: this.state.data.slice(0, this.props.limit + 1) })
       })
     }
 
@@ -54,7 +54,7 @@
   })
 
   React.render(
-    <TxFeed />
+    <TxFeed limit={ 10 }/>
   , document.getElementById('mount-point'))
 
 }())

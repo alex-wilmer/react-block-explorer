@@ -63,7 +63,7 @@
 
       socket.on('new_transaction', function (response) {
         _this.state.data.unshift(response);
-        _this.setState({ data: _this.state.data.slice(0, 9) });
+        _this.setState({ data: _this.state.data.slice(0, _this.props.limit + 1) });
       });
     },
 
@@ -79,5 +79,5 @@
     }
   });
 
-  React.render(React.createElement(TxFeed, null), document.getElementById('mount-point'));
+  React.render(React.createElement(TxFeed, { limit: 10 }), document.getElementById('mount-point'));
 })();
