@@ -10,8 +10,7 @@
       return React.createElement(
         'h1',
         null,
-        'Latest transaction id: ',
-        latestTransaction
+        'latest transactions'
       );
     }
   });
