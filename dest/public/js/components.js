@@ -20,9 +20,10 @@
     displayName: 'TxList',
 
     render: function render() {
-      var latestTransactions = this.props.data.map(function (tx) {
+      var latestTransactions = this.props.data.map(function (tx, i) {
         var amount = tx.payload.transaction.amount;
-        var txClass = amount > 10e7 ? 'tx high-roller' : 'tx';
+        var amountClass = amount > 10e7 ? 'tx high-roller' : 'tx';
+        var txClass = amountClass + ' fade-' + i;
 
         return React.createElement(
           'li',

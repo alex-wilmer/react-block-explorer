@@ -10,9 +10,10 @@
 
   const TxList = React.createClass({
     render() {
-      const latestTransactions = this.props.data.map(tx => {
+      const latestTransactions = this.props.data.map((tx, i) => {
         const amount = tx.payload.transaction.amount
-        const txClass = amount > 10e7 ? `tx high-roller` : `tx`
+        const amountClass = amount > 10e7 ? `tx high-roller` : `tx`
+        const txClass = `${amountClass} fade-${i}`
 
         return (
           <li className={ txClass } key={ tx.id }>
