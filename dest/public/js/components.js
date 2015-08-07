@@ -5,12 +5,18 @@
     displayName: 'TxList',
 
     render: function render() {
-      var latestTransaction = this.props.data;
+      var latestTransactions = this.props.data.map(function (tx) {
+        return React.createElement(
+          'li',
+          null,
+          tx.id
+        );
+      });
+
       return React.createElement(
         'ul',
         null,
-        'hey ',
-        latestTransaction
+        latestTransactions
       );
     }
   });

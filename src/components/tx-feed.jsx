@@ -1,9 +1,14 @@
 (() => {
   const TxList = React.createClass({
     render() {
-      const latestTransaction = this.props.data
+      const latestTransactions = this.props.data.map(tx => {
+        return (
+          <li>{ tx.id }</li>
+        )
+      })
+
       return (
-        <ul>hey { latestTransaction }</ul>
+        <ul>{ latestTransactions }</ul>
       )
     }
   })
