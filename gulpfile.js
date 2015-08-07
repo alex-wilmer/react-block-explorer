@@ -2,6 +2,8 @@ var gulp = require('gulp')
   , concat = require('gulp-concat')
   , babel = require('gulp-babel')
   , jade = require('gulp-jade')
+  , stylus = require('gulp-stylus')
+  , nib = require('nib')
 
 gulp.task('scripts', function () {
   return gulp.src('src/app.js')
@@ -22,10 +24,17 @@ gulp.task('jade', function () {
     .pipe(gulp.dest('dest/public'))
 })
 
+gulp.task('stylus', function () {
+  return gulp.src('src/styl/index.styl')
+    .pipe(stylus({ use: nib() }))
+    .pipe(gulp.dest('dest/public/css'))
+})
+
 gulp.task('watch', function () {
   gulp.watch('src/app.js', ['scripts'])
   gulp.watch('src/components/*.jsx', ['components'])
   gulp.watch('src/index.jade', ['jade'])
+  gulp.watch('src/styl/index.styl', ['stylus'])
 })
 
-gulp.task('default', ['watch', 'scripts', 'components', 'jade'])
+gulp.task('default', ['watch', 'scripts', 'components', 'jade', 'stylus'])
