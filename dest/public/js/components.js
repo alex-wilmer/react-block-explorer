@@ -1,5 +1,11 @@
 "use strict";
 
+var socket = io.connect(location.href);
+
+socket.on("test", function (data) {
+  console.log(data);
+});
+
 var MyComponent = React.createClass({
   displayName: "MyComponent",
 

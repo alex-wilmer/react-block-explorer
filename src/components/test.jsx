@@ -1,3 +1,9 @@
+const socket = io.connect(location.href)
+
+socket.on(`test`, data => {
+  console.log(data)
+})
+
 const MyComponent = React.createClass({
   render() {
     return (
