@@ -3,7 +3,7 @@
     render() {
       const latestTransactions = this.props.data.map(tx => {
         const highRoller =
-          tx.payload.transaction.amount > 10000000 ? `high-roller` : ``
+          tx.payload.transaction.amount > 10e7 ? `high-roller` : ``
 
         return (
           <li className={ highRoller } key={ tx.id }>

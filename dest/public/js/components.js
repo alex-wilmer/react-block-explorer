@@ -6,7 +6,7 @@
 
     render: function render() {
       var latestTransactions = this.props.data.map(function (tx) {
-        var highRoller = tx.payload.transaction.amount > 10000000 ? 'high-roller' : '';
+        var highRoller = tx.payload.transaction.amount > 10e7 ? 'high-roller' : '';
 
         return React.createElement(
           'li',
