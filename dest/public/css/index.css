@@ -89,19 +89,17 @@ td {
 a img {
   border: none;
 }
-body {
+.tx-feed {
+  padding: 20px;
+  width: 500px;
   font-family: 'Raleway', sans-serif;
 }
-h1 {
+.tx-title {
   font-size: 2em;
   margin: 15px 0;
 }
 .tx + .tx {
   margin-top: 15px;
-}
-.tx-feed {
-  padding: 20px;
-  width: 500px;
 }
 .high-roller {
   color: #00b300;
