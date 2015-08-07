@@ -1,12 +1,28 @@
 'use strict';
 
 (function () {
+  var Title = React.createClass({
+    displayName: 'Title',
+
+    render: function render() {
+      var classList = this.props.data.classList,
+          text = this.props.data.text;
+
+      return React.createElement(
+        'h1',
+        { className: classList },
+        text
+      );
+    }
+  });
+
   var TxList = React.createClass({
     displayName: 'TxList',
 
     render: function render() {
       var latestTransactions = this.props.data.map(function (tx) {
-        var txClass = tx.payload.transaction.amount > 10e7 ? 'tx high-roller' : 'tx';
+        var amount = tx.payload.transaction.amount;
+        var txClass = amount > 10e7 ? 'tx high-roller' : 'tx';
 
         return React.createElement(
           'li',
@@ -19,7 +35,7 @@
           React.createElement(
             'span',
             { className: 'satoshis' },
-            tx.payload.transaction.amount
+            amount
           )
         );
       });
@@ -42,6 +58,8 @@
     componentDidMount: function componentDidMount() {
       var _this = this;
 
+      var socket = io.connect(location.href);
+
       socket.on('new_transaction', function (response) {
         _this.state.data.unshift(response);
         _this.setState({ data: _this.state.data.slice(0, 9) });
@@ -49,20 +67,16 @@
     },
 
     render: function render() {
+      var title = { text: 'latest transactions', classList: 'tx-title' };
+
       return React.createElement(
         'div',
         { className: 'tx-feed' },
-        React.createElement(
-          'h1',
-          null,
-          'latest transactions'
-        ),
+        React.createElement(Title, { data: title }),
         React.createElement(TxList, { data: this.state.data })
       );
     }
   });
-
-  var socket = io.connect(location.href);
 
   React.render(React.createElement(TxFeed, null), document.getElementById('mount-point'));
 })();
