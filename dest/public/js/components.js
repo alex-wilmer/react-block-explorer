@@ -1,6 +1,49 @@
 'use strict';
 
-(function () {
+;(function () {
+  var BlockSearch = React.createClass({
+    displayName: 'BlockSearch',
+
+    getInitialState: function getInitialState() {
+      return { blockInfo: {} };
+    },
+
+    render: function render() {
+      return React.createElement(
+        'div',
+        null,
+        React.createElement(Search, null),
+        React.createElement(BlockInfo, { data: this.state.blockInfo })
+      );
+    }
+  });
+
+  var Search = React.createClass({
+    displayName: 'Search',
+
+    handleChange: function handleChange(event) {
+      console.log(event);
+    },
+
+    render: function render() {
+      return React.createElement('input', { onChange: this.handleChange });
+    }
+  });
+
+  var BlockInfo = React.createClass({
+    displayName: 'BlockInfo',
+
+    render: function render() {
+      return React.createElement(
+        'div',
+        null,
+        this.props.data
+      );
+    }
+  });
+
+  React.render(React.createElement(BlockSearch, null), document.getElementById('blockSearch'));
+})();(function () {
   var Title = React.createClass({
     displayName: 'Title',
 
@@ -21,9 +64,9 @@
 
     render: function render() {
       var latestTransactions = this.props.data.map(function (tx, i) {
-        var amount = tx.payload.transaction.amount;
-        var amountClass = amount > 10e7 ? 'tx high-roller' : 'tx';
-        var txClass = amountClass + ' fade-' + i;
+        var amount = tx.payload.transaction.amount,
+            amountClass = amount > 10e7 ? 'tx high-roller' : 'tx',
+            txClass = amountClass + ' fade-' + i;
 
         return React.createElement(
           'li',

@@ -1,4 +1,4 @@
-(() => {
+;(() => {
   const Title = React.createClass({
     render() {
       const classList = this.props.data.classList
@@ -12,8 +12,8 @@
     render() {
       const latestTransactions = this.props.data.map((tx, i) => {
         const amount = tx.payload.transaction.amount
-        const amountClass = amount > 10e7 ? `tx high-roller` : `tx`
-        const txClass = `${amountClass} fade-${i}`
+            , amountClass = amount > 10e7 ? `tx high-roller` : `tx`
+            , txClass = `${amountClass} fade-${i}`
 
         return (
           <li className={ txClass } key={ tx.id }>
@@ -42,7 +42,7 @@
     }
 
   , render() {
-      const title = { text: 'latest transactions', classList: 'tx-title' }
+      const title = { text: `latest transactions`, classList: `tx-title` }
 
       return (
         <div className='tx-feed'>
@@ -54,7 +54,7 @@
   })
 
   React.render(
-    <TxFeed limit={ 10 }/>
+    <TxFeed limit={ 10 } />
   , document.getElementById('mount-point'))
 
 }())

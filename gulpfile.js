@@ -13,8 +13,8 @@ gulp.task('scripts', function () {
 
 gulp.task('components', function () {
   return gulp.src('src/components/*.jsx')
-    .pipe(babel())
     .pipe(concat('components.js'))
+    .pipe(babel())
     .pipe(gulp.dest('dest/public/js'))
 })
 
