@@ -16,11 +16,11 @@
 
   const Search = React.createClass({
     handleChange(event) {
-      console.log(event)
+      console.dir(event)
     }
 
   , render() {
-      return <input onChange={ this.handleChange } />
+      return <input type='text' onChange={ this.handleChange } />
     }
   })
 
@@ -32,6 +32,6 @@
 
   React.render(
     <BlockSearch />
-  , document.getElementById('blockSearch'))
+  , document.getElementById(`blockSearch`))
 
 }())

@@ -22,11 +22,11 @@
     displayName: 'Search',
 
     handleChange: function handleChange(event) {
-      console.log(event);
+      console.dir(event);
     },
 
     render: function render() {
-      return React.createElement('input', { onChange: this.handleChange });
+      return React.createElement('input', { type: 'text', onChange: this.handleChange });
     }
   });
 
