@@ -1,37 +1,21 @@
-;(() => {
-  const BlockSearch = React.createClass({
-    getInitialState() {
-      return { blockInfo: {} }
+const BlockSearch = React.createClass({
+  getInitialState () {
+    return { blockInfo: {} }
+  }
+
+, getBlock (event) {
+    if (event.keyCode === 13) {
+      qwest.post(`/query`, { query: event.target.value })
+        .then(data => this.setState({ blockInfo: data }))
     }
+  }
 
-  , render() {
-      return (
-        <div>
-          <Search />
-          <BlockInfo data={ this.state.blockInfo } />
-        </div>
-      )
-    }
-  })
-
-  const Search = React.createClass({
-    handleChange(event) {
-      console.dir(event)
-    }
-
-  , render() {
-      return <input type='text' onChange={ this.handleChange } />
-    }
-  })
-
-  const BlockInfo = React.createClass({
-    render() {
-      return <div>{ this.props.data }</div>
-    }
-  })
-
-  React.render(
-    <BlockSearch />
-  , document.getElementById(`blockSearch`))
-
-}())
+, render () {
+    return (
+      <div className='block-search'>
+        <Search action={ this.getBlock } />
+        <BlockInfo data={ this.state.blockInfo } />
+      </div>
+    )
+  }
+})

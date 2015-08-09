@@ -1,0 +1,16 @@
+{
+  "name": "block_explorer",
+  "version": "0.0.0",
+  "homepage": "https://github.com/alex-wilmer/react-block-explorer",
+  "authors": [
+    "alex-wilmer <djazium@gmail.com>"
+  ],
+  "description": "A bitcoin block explorer made with React",
+  "moduleType": [
+    "node"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "qwest": "~2.0.4"
+  }
+}
