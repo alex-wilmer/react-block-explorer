@@ -16,10 +16,10 @@ app.get(`/`, (req, res) => {
   res.sendFile(`/index.html`)
 })
 
-app.post(`/new_transaction`, (req, res) => {
-  io.sockets.emit(`new_transaction`, req.body)
-  res.end()
-})
+// app.post(`/new_transaction`, (req, res) => {
+//   io.sockets.emit(`new_transaction`, req.body)
+//   res.end()
+// })
 
 app.post(`/query`, (req, res) => {
   const query = req.body.query
@@ -29,7 +29,7 @@ app.post(`/query`, (req, res) => {
       res.json(resp)
     })
   }
-  
+
   else {
     chain.getAddress(query, (err, resp) => {
       res.json(resp)
