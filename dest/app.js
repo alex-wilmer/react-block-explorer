@@ -18,10 +18,10 @@ app.get("/", function (req, res) {
   res.sendFile("/index.html");
 });
 
-// app.post(`/new_transaction`, (req, res) => {
-//   io.sockets.emit(`new_transaction`, req.body)
-//   res.end()
-// })
+app.post("/new_transaction", function (req, res) {
+  io.sockets.emit("new_transaction", req.body);
+  res.end();
+});
 
 app.post("/query", function (req, res) {
   var query = req.body.query;
