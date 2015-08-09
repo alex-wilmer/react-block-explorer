@@ -10,7 +10,7 @@ const Search = React.createClass({
     }
 
     const placeholder =
-      `Enter address, block height`
+      `Enter block height`
 
     return (
       <input type='text' style={ style }

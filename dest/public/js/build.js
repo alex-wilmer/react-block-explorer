@@ -4,10 +4,15 @@ var BlockInfo = React.createClass({
   displayName: 'BlockInfo',
 
   render: function render() {
+    var style = {
+      margin: '10px 0'
+    };
+
     return React.createElement(
       'div',
-      null,
-      this.props.data
+      { style: style },
+      'Difficulty: ',
+      this.props.data.difficulty
     );
   }
 });
@@ -16,25 +21,30 @@ var BlockSearch = React.createClass({
   displayName: 'BlockSearch',
 
   getInitialState: function getInitialState() {
-    return { blockInfo: {} };
+    return { queryResponse: {} };
   },
 
   getBlock: function getBlock(event) {
     var _this = this;
 
     if (event.keyCode === 13) {
-      qwest.post('/query', { query: event.target.value }).then(function (data) {
-        return _this.setState({ blockInfo: data });
+      qwest.post('/query', { query: event.target.value }).then(function (response) {
+        _this.setState({ queryResponse: JSON.parse(response.response) });
       });
     }
   },
 
   render: function render() {
+    var style = {
+      padding: '20px',
+      fontFamily: '\'Raleway\', sans-serif'
+    };
+
     return React.createElement(
       'div',
-      { className: 'block-search' },
+      { style: style, className: 'block-search' },
       React.createElement(Search, { action: this.getBlock }),
-      React.createElement(BlockInfo, { data: this.state.blockInfo })
+      React.createElement(BlockInfo, { data: this.state.queryResponse })
     );
   }
 });
@@ -52,7 +62,7 @@ var Search = React.createClass({
       width: '350px'
     };
 
-    var placeholder = 'Enter address, block height';
+    var placeholder = 'Enter block height';
 
     return React.createElement('input', { type: 'text', style: style,
       placeholder: placeholder, onKeyDown: this.props.action });

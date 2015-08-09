@@ -1,5 +1,13 @@
 const BlockInfo = React.createClass({
   render () {
-    return <div>{ this.props.data }</div>
+    const style = {
+      margin: `10px 0`
+    }
+
+    return (
+      <div style={ style }>
+        Difficulty: { this.props.data.difficulty }
+      </div>
+    )
   }
 })
