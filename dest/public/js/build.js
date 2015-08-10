@@ -102,10 +102,14 @@ var TxFeed = React.createClass({
 
   render: function render() {
     var title = { text: 'latest transactions' };
+    var floatRight = { float: 'right' };
     var style = {
       padding: '20px',
       width: '500px',
       fontFamily: '\'Raleway\', sans-serif'
+    };
+    var margin = {
+      margin: '10px 0'
     };
 
     return React.createElement(
@@ -113,16 +117,20 @@ var TxFeed = React.createClass({
       { style: style },
       React.createElement(Title, { data: title }),
       React.createElement(
-        'span',
-        null,
-        'hash'
+        'div',
+        { style: margin },
+        React.createElement(
+          'span',
+          null,
+          'hash'
+        ),
+        React.createElement(
+          'span',
+          { style: floatRight },
+          'satoshis'
+        )
       ),
-      React.createElement(
-        'span',
-        null,
-        'satoshis'
-      ),
-      React.createElement(TxList, { data: this.state.data })
+      React.createElement(TxList, { data: this.state.data, style: floatRight })
     );
   }
 });
@@ -133,7 +141,6 @@ var TxList = React.createClass({
   render: function render() {
     var _this3 = this;
 
-    var floatRight = { float: 'right' };
     var highRoller = {
       color: '#00B300',
       fontWeight: 'bold',
@@ -141,7 +148,7 @@ var TxList = React.createClass({
     };
 
     var latestTransactions = this.props.data.map(function (tx, i) {
-      var txHash = tx.payload.transaction.hash.substr(0, 10) + '...';
+      var txHash = tx.payload.transaction.hash.substr(0, 20) + '...';
       var amount = tx.payload.transaction.amount;
 
       var liStyle = { opacity: 1 - i / _this3.props.data.length };
@@ -161,7 +168,7 @@ var TxList = React.createClass({
         ),
         React.createElement(
           'span',
-          { style: floatRight },
+          { style: _this3.props.style },
           amount
         )
       );

@@ -1,6 +1,5 @@
 const TxList = React.createClass({
   render () {
-    const floatRight = { float: `right` }
     const highRoller = {
       color: `#00B300`
     , fontWeight: `bold`
@@ -8,7 +7,7 @@ const TxList = React.createClass({
     }
 
     const latestTransactions = this.props.data.map((tx, i) => {
-      const txHash = `${tx.payload.transaction.hash.substr(0, 10)}...`
+      const txHash = `${tx.payload.transaction.hash.substr(0, 20)}...`
       const amount = tx.payload.transaction.amount
 
       let liStyle = { opacity: 1 - (i / this.props.data.length) }
@@ -24,7 +23,7 @@ const TxList = React.createClass({
       return (
         <li style={ liStyle } key={ tx.id }>
           <span>{ txHash }</span>
-          <span style={ floatRight }>{ amount }</span>
+          <span style={ this.props.style }>{ amount }</span>
         </li>
       )
     })

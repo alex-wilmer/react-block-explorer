@@ -14,18 +14,24 @@ const TxFeed = React.createClass({
 
 , render () {
     const title = { text: `latest transactions` }
+    const floatRight = { float: `right` }
     const style = {
       padding: `20px`
     , width: `500px`
     , fontFamily: `'Raleway', sans-serif`
     }
+    const margin = {
+      margin: `10px 0`
+    }
 
     return (
       <div style={ style }>
         <Title data={ title } />
-        <span>hash</span>
-        <span>satoshis</span>
-        <TxList data={ this.state.data } />
+        <div style={ margin }>
+          <span>hash</span>
+          <span style={ floatRight }>satoshis</span>
+        </div>
+        <TxList data={ this.state.data } style={ floatRight } />
       </div>
     )
   }
