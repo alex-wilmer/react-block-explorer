@@ -130,9 +130,11 @@ var TxList = React.createClass({
     };
 
     var latestTransactions = this.props.data.map(function (tx, i) {
+      var amount = tx.payload.transaction.amount;
+
       var liStyle = i ? Object.assign({ marginTop: '15px' }, opaqueTransition) : opaqueTransition;
 
-      liStyle = tx.payload.transaction.amount > 10e7 ? Object.assign(highRoller, liStyle) : liStyle;
+      liStyle = amount > 10e7 ? Object.assign(highRoller, liStyle) : liStyle;
 
       var txClass = 'fade-' + i;
 

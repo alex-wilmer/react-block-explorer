@@ -9,11 +9,13 @@ const TxList = React.createClass({
     }
 
     const latestTransactions = this.props.data.map((tx, i) => {
+      const amount = tx.payload.transaction.amount
+
       let liStyle = i
         ? Object.assign({ marginTop: `15px` }, opaqueTransition)
         : opaqueTransition
 
-      liStyle = tx.payload.transaction.amount > 10e7
+      liStyle = amount > 10e7
         ? Object.assign(highRoller, liStyle)
         : liStyle
 
