@@ -112,6 +112,16 @@ var TxFeed = React.createClass({
       'div',
       { style: style },
       React.createElement(Title, { data: title }),
+      React.createElement(
+        'span',
+        null,
+        'hash'
+      ),
+      React.createElement(
+        'span',
+        null,
+        'satoshis'
+      ),
       React.createElement(TxList, { data: this.state.data })
     );
   }
@@ -131,6 +141,7 @@ var TxList = React.createClass({
     };
 
     var latestTransactions = this.props.data.map(function (tx, i) {
+      var txHash = tx.payload.transaction.hash.substr(0, 10) + '...';
       var amount = tx.payload.transaction.amount;
 
       var liStyle = { opacity: 1 - i / _this3.props.data.length };
@@ -146,7 +157,7 @@ var TxList = React.createClass({
         React.createElement(
           'span',
           null,
-          tx.id
+          txHash
         ),
         React.createElement(
           'span',

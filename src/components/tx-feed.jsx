@@ -23,6 +23,8 @@ const TxFeed = React.createClass({
     return (
       <div style={ style }>
         <Title data={ title } />
+        <span>hash</span>
+        <span>satoshis</span>
         <TxList data={ this.state.data } />
       </div>
     )
