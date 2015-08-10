@@ -121,7 +121,6 @@ var TxList = React.createClass({
   displayName: 'TxList',
 
   render: function render() {
-    var opaqueTransition = { opacity: 1, transition: 'opacity 0.3s ease' };
     var floatRight = { float: 'right' };
     var highRoller = {
       color: '#00B300',
@@ -132,7 +131,10 @@ var TxList = React.createClass({
     var latestTransactions = this.props.data.map(function (tx, i) {
       var amount = tx.payload.transaction.amount;
 
-      var liStyle = i ? Object.assign({ marginTop: '15px' }, opaqueTransition) : opaqueTransition;
+      var liStyle = Object.assign({ opacity: 1 - (i + 1 / 10) });
+
+      liStyle = i // not first element
+      ? Object.assign({ marginTop: '15px' }, liStyle) : liStyle;
 
       liStyle = amount > 10e7 ? Object.assign(highRoller, liStyle) : liStyle;
 

@@ -9,8 +9,7 @@ const Search = React.createClass({
     , width: `350px`
     }
 
-    const placeholder =
-      `Enter block height`
+    const placeholder = `Enter block height`
 
     return (
       <input type='text' style={ style }
