@@ -1,8 +1,8 @@
 const Title = React.createClass({
   render () {
-    const classList = this.props.data.classList
-        , text = this.props.data.text
+    const text = this.props.data.text
+        , style = { fontSize: `2em`, margin: `15px 0` }
 
-    return <h1 className={ classList }>{ text }</h1>
+    return <h1 style={ style }>{ text }</h1>
   }
 })

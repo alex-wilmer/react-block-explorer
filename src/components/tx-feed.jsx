@@ -13,10 +13,15 @@ const TxFeed = React.createClass({
   }
 
 , render () {
-    const title = { text: `latest transactions`, classList: `tx-title` }
+    const title = { text: `latest transactions` }
+        , style = {
+            padding: `20px`
+          , width: `500px`
+          , fontFamily: `'Raleway', sans-serif`
+          }
 
     return (
-      <div className='tx-feed'>
+      <div style={ style }>
         <Title data={ title } />
         <TxList data={ this.state.data } />
       </div>

@@ -94,15 +94,6 @@ a img {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
-.tx-feed {
-  padding: 20px;
-  width: 500px;
-  font-family: 'Raleway', sans-serif;
-}
-.tx-title {
-  font-size: 2em;
-  margin: 15px 0;
-}
 .tx + .tx {
   margin-top: 15px;
 }
@@ -110,19 +101,6 @@ a img {
   color: #00b300;
   font-weight: bold;
   font-size: 1.1em;
-}
-.satoshis {
-  float: right;
-}
-.tx {
-  opacity: 1;
-  -ms-filter: none;
-  filter: none;
-  -webkit-transition: opacity 0.3s ease;
-  -moz-transition: opacity 0.3s ease;
-  -o-transition: opacity 0.3s ease;
-  -ms-transition: opacity 0.3s ease;
-  transition: opacity 0.3s ease;
 }
 .fade-1 {
   opacity: 0.9;

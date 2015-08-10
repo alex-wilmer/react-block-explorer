@@ -73,12 +73,12 @@ var Title = React.createClass({
   displayName: 'Title',
 
   render: function render() {
-    var classList = this.props.data.classList,
-        text = this.props.data.text;
+    var text = this.props.data.text,
+        style = { fontSize: '2em', margin: '15px 0' };
 
     return React.createElement(
       'h1',
-      { className: classList },
+      { style: style },
       text
     );
   }
@@ -103,11 +103,16 @@ var TxFeed = React.createClass({
   },
 
   render: function render() {
-    var title = { text: 'latest transactions', classList: 'tx-title' };
+    var title = { text: 'latest transactions' },
+        style = {
+      padding: '20px',
+      width: '500px',
+      fontFamily: '\'Raleway\', sans-serif'
+    };
 
     return React.createElement(
       'div',
-      { className: 'tx-feed' },
+      { style: style },
       React.createElement(Title, { data: title }),
       React.createElement(TxList, { data: this.state.data })
     );
@@ -118,22 +123,24 @@ var TxList = React.createClass({
   displayName: 'TxList',
 
   render: function render() {
-    var latestTransactions = this.props.data.map(function (tx, i) {
+    var opaqueTransition = { opacity: 1, transition: 'opacity 0.3s ease' },
+        floatRight = { float: 'right' },
+        latestTransactions = this.props.data.map(function (tx, i) {
       var amount = tx.payload.transaction.amount,
-          amountClass = amount > 10e7 ? 'tx high-roller' : 'tx',
+          amountClass = amount > 10e7 ? 'high-roller' : '',
           txClass = amountClass + ' fade-' + i;
 
       return React.createElement(
         'li',
-        { className: txClass, key: tx.id },
+        { style: opaqueTransition, className: txClass, key: tx.id },
         React.createElement(
           'span',
-          { className: 'id' },
+          null,
           tx.id
         ),
         React.createElement(
           'span',
-          { className: 'satoshis' },
+          { style: floatRight },
           amount
         )
       );
