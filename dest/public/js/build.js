@@ -131,7 +131,7 @@ var TxList = React.createClass({
     var latestTransactions = this.props.data.map(function (tx, i) {
       var amount = tx.payload.transaction.amount;
 
-      var liStyle = Object.assign({ opacity: 1 - (i + 1 / 10) });
+      var liStyle = Object.assign({ opacity: 1 - i / 10 });
 
       liStyle = i // not first element
       ? Object.assign({ marginTop: '15px' }, liStyle) : liStyle;

@@ -10,7 +10,7 @@ const TxList = React.createClass({
     const latestTransactions = this.props.data.map((tx, i) => {
       const amount = tx.payload.transaction.amount
 
-      let liStyle = Object.assign({ opacity: 1 - (i + 1 / 10) })
+      let liStyle = Object.assign({ opacity: 1 - (i / 10) })
 
       liStyle = i // not first element
         ? Object.assign({ marginTop: `15px` }, liStyle)
