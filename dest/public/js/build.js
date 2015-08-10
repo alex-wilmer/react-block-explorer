@@ -138,7 +138,7 @@ var TxList = React.createClass({
       liStyle = i // not first element
       ? Object.assign({ marginTop: '15px' }, liStyle) : liStyle;
 
-      liStyle = amount > 10e7 ? Object.assign(highRoller, liStyle) : liStyle;
+      liStyle = amount > 10e7 ? Object.assign({}, highRoller, liStyle) : liStyle;
 
       return React.createElement(
         'li',

@@ -17,7 +17,7 @@ const TxList = React.createClass({
         : liStyle
 
       liStyle = amount > 10e7
-        ? Object.assign(highRoller, liStyle)
+        ? Object.assign({}, highRoller, liStyle)
         : liStyle
 
       return (
