@@ -4,9 +4,7 @@ var BlockInfo = React.createClass({
   displayName: 'BlockInfo',
 
   render: function render() {
-    var style = {
-      margin: '10px 0'
-    };
+    var style = { margin: '10px 0' };
 
     return React.createElement(
       'div',
@@ -73,8 +71,8 @@ var Title = React.createClass({
   displayName: 'Title',
 
   render: function render() {
-    var text = this.props.data.text,
-        style = { fontSize: '2em', margin: '15px 0' };
+    var text = this.props.data.text;
+    var style = { fontSize: '2em', margin: '15px 0' };
 
     return React.createElement(
       'h1',
@@ -103,8 +101,8 @@ var TxFeed = React.createClass({
   },
 
   render: function render() {
-    var title = { text: 'latest transactions' },
-        style = {
+    var title = { text: 'latest transactions' };
+    var style = {
       padding: '20px',
       width: '500px',
       fontFamily: '\'Raleway\', sans-serif'
@@ -125,11 +123,18 @@ var TxList = React.createClass({
   render: function render() {
     var opaqueTransition = { opacity: 1, transition: 'opacity 0.3s ease' };
     var floatRight = { float: 'right' };
+    var highRoller = {
+      color: '#00B300',
+      fontWeight: 'bold',
+      fontSize: '1.1em'
+    };
+
     var latestTransactions = this.props.data.map(function (tx, i) {
-      var amount = tx.payload.transaction.amount;
-      var amountClass = amount > 10e7 ? 'high-roller' : '';
-      var txClass = amountClass + ' fade-' + i;
       var liStyle = i ? Object.assign({ marginTop: '15px' }, opaqueTransition) : opaqueTransition;
+
+      liStyle = tx.payload.transaction.amount > 10e7 ? Object.assign(highRoller, liStyle) : liStyle;
+
+      var txClass = 'fade-' + i;
 
       return React.createElement(
         'li',

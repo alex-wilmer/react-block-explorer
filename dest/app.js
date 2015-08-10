@@ -1,14 +1,14 @@
 "use strict";
 
-var express = require("express"),
-    app = express(),
-    server = require("http").Server(app),
-    io = require("socket.io")(server),
-    bodyParser = require("body-parser"),
-    Chain = require("chain-node"),
-    config = require("../config"),
-    chain = new Chain(config),
-    port = process.env.PORT || 5000;
+var express = require("express");
+var app = express();
+var server = require("http").Server(app);
+var io = require("socket.io")(server);
+var bodyParser = require("body-parser");
+var Chain = require("chain-node");
+var config = require("../config");
+var chain = new Chain(config);
+var port = process.env.PORT || 5000;
 
 app.use(express["static"](__dirname + "/public"));
 app.use(bodyParser.urlencoded({ extended: false }));

@@ -1,8 +1,6 @@
 const BlockInfo = React.createClass({
   render () {
-    const style = {
-      margin: `10px 0`
-    }
+    const style = { margin: `10px 0` }
 
     return (
       <div style={ style }>

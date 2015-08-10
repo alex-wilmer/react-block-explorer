@@ -14,11 +14,11 @@ const TxFeed = React.createClass({
 
 , render () {
     const title = { text: `latest transactions` }
-        , style = {
-            padding: `20px`
-          , width: `500px`
-          , fontFamily: `'Raleway', sans-serif`
-          }
+    const style = {
+      padding: `20px`
+    , width: `500px`
+    , fontFamily: `'Raleway', sans-serif`
+    }
 
     return (
       <div style={ style }>

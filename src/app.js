@@ -1,12 +1,12 @@
 const express = require(`express`)
-    , app = express()
-    , server = require(`http`).Server(app)
-    , io = require(`socket.io`)(server)
-    , bodyParser = require(`body-parser`)
-    , Chain = require(`chain-node`)
-    , config = require(`../config`)
-    , chain = new Chain(config)
-    , port = process.env.PORT || 5000
+const app = express()
+const server = require(`http`).Server(app)
+const io = require(`socket.io`)(server)
+const bodyParser = require(`body-parser`)
+const Chain = require(`chain-node`)
+const config = require(`../config`)
+const chain = new Chain(config)
+const port = process.env.PORT || 5000
 
 app.use(express.static(`${__dirname}/public`))
 app.use(bodyParser.urlencoded({ extended: false }))

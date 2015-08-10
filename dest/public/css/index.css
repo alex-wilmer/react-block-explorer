@@ -94,11 +94,6 @@ a img {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
-.high-roller {
-  color: #00b300;
-  font-weight: bold;
-  font-size: 1.1em;
-}
 .fade-1 {
   opacity: 0.9;
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=90)";
