@@ -6,7 +6,10 @@ const TxList = React.createClass({
       const amount = tx.payload.transaction.amount
           , amountClass = amount > 10e7 ? `high-roller` : ``
           , txClass = `${amountClass} fade-${i}`
-
+          , liStyle = i
+            ? Object.assign({ marginTop: `15px` }, opaqueTransition)
+            : opaqueTransition
+                  
       return (
         <li style={ opaqueTransition } className={ txClass } key={ tx.id }>
           <span>{ tx.id }</span>

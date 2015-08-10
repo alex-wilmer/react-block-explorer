@@ -94,9 +94,6 @@ a img {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
-.tx + .tx {
-  margin-top: 15px;
-}
 .high-roller {
   color: #00b300;
   font-weight: bold;

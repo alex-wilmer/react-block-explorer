@@ -128,7 +128,8 @@ var TxList = React.createClass({
         latestTransactions = this.props.data.map(function (tx, i) {
       var amount = tx.payload.transaction.amount,
           amountClass = amount > 10e7 ? 'high-roller' : '',
-          txClass = amountClass + ' fade-' + i;
+          txClass = amountClass + ' fade-' + i,
+          liStyle = i ? Object.assign({ marginTop: '15px' }, opaqueTransition) : opaqueTransition;
 
       return React.createElement(
         'li',
