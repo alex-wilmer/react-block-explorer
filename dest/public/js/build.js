@@ -123,17 +123,17 @@ var TxList = React.createClass({
   displayName: 'TxList',
 
   render: function render() {
-    var opaqueTransition = { opacity: 1, transition: 'opacity 0.3s ease' },
-        floatRight = { float: 'right' },
-        latestTransactions = this.props.data.map(function (tx, i) {
-      var amount = tx.payload.transaction.amount,
-          amountClass = amount > 10e7 ? 'high-roller' : '',
-          txClass = amountClass + ' fade-' + i,
-          liStyle = i ? Object.assign({ marginTop: '15px' }, opaqueTransition) : opaqueTransition;
+    var opaqueTransition = { opacity: 1, transition: 'opacity 0.3s ease' };
+    var floatRight = { float: 'right' };
+    var latestTransactions = this.props.data.map(function (tx, i) {
+      var amount = tx.payload.transaction.amount;
+      var amountClass = amount > 10e7 ? 'high-roller' : '';
+      var txClass = amountClass + ' fade-' + i;
+      var liStyle = i ? Object.assign({ marginTop: '15px' }, opaqueTransition) : opaqueTransition;
 
       return React.createElement(
         'li',
-        { style: opaqueTransition, className: txClass, key: tx.id },
+        { style: liStyle, className: txClass, key: tx.id },
         React.createElement(
           'span',
           null,
